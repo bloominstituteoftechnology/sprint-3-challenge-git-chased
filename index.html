@@ -234,20 +234,22 @@
       }
       work() {
         
-
-        this.ants = this.ants.filter(ant => ant.health > 0);
-        
-        this.ants.forEach(ant => {
-          ant.health -= 20;
-         });
-
-        
-
+        const count = this.ants.length
         if (this.ants.length === 0) {
           return "No ants here. Did you work them to death?";
         }
+        
+        this.ants.map(ant => {
+          ant.health -= 20;
+          
+         });
 
-        return `${this.ants.length} ants starting work!`
+         this.ants = this.ants.filter(ant => ant.health > 0);
+
+        
+       
+        
+        return `${count} ants starting work!`
         
   }
  feed(name) {
